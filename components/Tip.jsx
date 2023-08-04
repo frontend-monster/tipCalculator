@@ -224,7 +224,8 @@ export default function Tip() {
                 <span className="text-labelGrey text-[13px]">/ person</span>
               </h1>
               <h1 className="text-[32px] sm:text-5xl font-bold text-inputActive">
-                ${tipAmount}
+                ${tipAmount} 
+                {tipAmount === 0 && ".00"}
               </h1>
             </div>
             <div className="text-white flex justify-between items-center">
@@ -232,7 +233,10 @@ export default function Tip() {
                 Total
                 <span className="text-labelGrey text-[13px]">/ person</span>
               </h1>
-              <h1 className="text-[32px] sm:text-5xl font-bold text-inputActive">${total}</h1>
+              <h1 className="text-[32px] sm:text-5xl font-bold text-inputActive">
+              ${total}
+              {total === 0 && ".00"}
+              </h1>
             </div>
           </div>
 
