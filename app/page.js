@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-10 sm:gap-20 py-12 pb-0 sm:py-24 justify-center items-center">
+    <main className="flex flex-col gap-10 sm:gap-20 py-12 pb-0 sm:py-40 justify-center items-center">
       
       <Image
         src={splitter}

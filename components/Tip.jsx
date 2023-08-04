@@ -28,6 +28,7 @@ export default function Tip() {
   const [people, setPeople] = useState("");
   const [tipAmount, setTipAmount] = useState(0);
   const [total, setTotal] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleTipClick = (tip) => {
     setSelectedTip(tip);
@@ -41,6 +42,7 @@ export default function Tip() {
 
   useEffect(() => {
     if (bill && selectedTip && people) {
+      setIsDisabled(false);
       let totalTip = Number(bill) * (Number(selectedTip) / 100);
       let totalAmount = Number(bill) + totalTip;
       let tipPerPerson = totalTip / Number(people);
@@ -52,6 +54,7 @@ export default function Tip() {
       setTipAmount(tipPerPerson);
       setTotal(totalPerPerson);
     } else if (bill && customTip && people) {
+      setIsDisabled(false);
       let totalTip = Number(bill) * (Number(customTip) / 100);
       let totalAmount = Number(bill) + totalTip;
       let tipPerPerson = totalTip / Number(people);
@@ -62,6 +65,7 @@ export default function Tip() {
       setTipAmount(tipPerPerson);
       setTotal(totalPerPerson);
     } else {
+      setIsDisabled(true);
       setTipAmount(0);
       setTotal(0);
     }
@@ -233,8 +237,9 @@ export default function Tip() {
           </div>
 
           <motion.button
+            disabled={isDisabled}
             type="button"
-            className="bg-inputActive text-inputColor font-bold text-[20px] rounded-[5px] hover:bg-[#9FE8DF] transition-all duration-200 py-2"
+            className="bg-inputActive text-inputColor font-bold text-[20px] rounded-[5px] hover:bg-[#9FE8DF] cursor-pointer py-2 disabled:bg-disabledbtn disabled:text-inputColor disabled:cursor-not-allowed"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.8 }}
             transition={{

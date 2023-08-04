@@ -12,6 +12,7 @@ module.exports = {
         labels: '#5E7A7D',
         heading: '#3D6666',
         inputColor: '#00474B',
+        disabledbtn: '#0D686D',
         inputActive: '#26C2AE',
         labelGrey: '#7F9D9F',
         inputBG: '#F3F9FA',
